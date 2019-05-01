@@ -11,7 +11,7 @@ namespace ConsoleApp1
         string name;
         int hp;
         int maxHp = 10;
-        int attack = 5;
+        int attack = 1;
 
         public bool DeadF;
 
@@ -30,15 +30,30 @@ namespace ConsoleApp1
 
         public void Name()
         {
+            while (true)
+            {
+                Console.WriteLine("名前を入力してください(６文字以内)");
+                name = Console.ReadLine();
 
-            Console.WriteLine("名前を入力してください(６文字以内)");
-            name = Console.ReadLine();
-            Console.WriteLine("プレイヤー名[{0}]を登録しました \n", name);
+                if (name.Length > 6)
+                {
+                    Console.WriteLine("名前は6文字以内で入力してください \n");
+                }
+                else if(name.Length <= 0)
+                {
+                    Console.WriteLine("名前が入力されていません \n");
+                }
+                else
+                {
+                    Console.WriteLine("プレイヤー名[{0}]を登録しました \n", name);
+                    break;
+                }
+            }
         }
 
         public void Print()
         {
-            Console.WriteLine(name + ":" + hp);
+            Console.WriteLine("\n"+name + ":" + hp);
         }
 
 
@@ -52,7 +67,7 @@ namespace ConsoleApp1
             Console.WriteLine(name + "の魔法攻撃");
             damageF = DamegeF.Magic;
 
-            attack += 5;
+            attack += 8;
             enemy.Damage(attack);
         }
         public void Guard()
@@ -77,7 +92,7 @@ namespace ConsoleApp1
 
             }
             hp -= damege;
-            Console.WriteLine("{0}は{1}のダメージを受けた！\n", name, damege);
+            Console.WriteLine("{0}は{1}のダメージを受けた！", name, damege);
             if (hp <= 0)
             {
                 DeadF = true;
@@ -92,9 +107,18 @@ namespace ConsoleApp1
             hp = maxHp;
         }
 
-        public void Win()
+        public void Judge()
         {
-            Console.WriteLine(name + "は勝利した！");
+            if (!DeadF)
+            {
+                Console.WriteLine("\n" + name + "は勝利した！");
+            }
+            else
+            {
+                Console.WriteLine("\n" + name + "は力尽きてしまった…");
+            }
         }
+
+      
     }
 }

@@ -20,13 +20,13 @@ namespace ConsoleApp1
             Console.WriteLine("戦闘開始");
             Enemy enemy = new Enemy();
 
-            Console.WriteLine("敵が1体現れた \n");
+            Console.WriteLine("敵が1体現れた");
 
             while (true)
             {
                 //ステータス表示
-                enemy.Print();
                 player.Print();
+                enemy.Print();
 
                 //攻撃
                 Console.WriteLine("\n 攻撃を入力 \n　A.通常攻撃 S.魔法攻撃 D.防御 \n");
@@ -63,14 +63,7 @@ namespace ConsoleApp1
                 }
             }
 
-            if (!player.DeadF)
-            {
-                player.Win();
-            }
-            else
-            {
-                enemy.Win();
-            }
+            player.Judge();
                
 
 

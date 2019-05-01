@@ -37,7 +37,7 @@ namespace ConsoleApp1
         public void Damage(int damege)
         {
             hp -= damege;
-            Console.WriteLine("{0}に{1}のダメージをあたえた！\n", name, damege);
+            Console.WriteLine("{0}に{1}のダメージをあたえた！", name, damege);
             if (hp <= 0)
             {
                 DeadF = true;
@@ -49,9 +49,6 @@ namespace ConsoleApp1
             maxHp += 10;
             hp = maxHp;
         }
-        public void Win()
-        {
-            Console.WriteLine(name + "は勝利した！");
-        }
+
     }
 }

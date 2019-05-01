@@ -8,17 +8,16 @@ namespace ConsoleApp1
 {
     class Enemy
     {
-        string name = "スライム";
+      protected  string name = "ダミー";
         int hp;
-        int maxHp = 10;
-        int attack = 3;
+       protected int maxHp = 3;
+       protected  int attack = 1;
 
         public bool DeadF;
 
-
-        public Enemy()
+        public void MakeEnemy()
         {
-            hp = maxHp;
+            Enemy slime = new Slime();
         }
 
         public void Print()

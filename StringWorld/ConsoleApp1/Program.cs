@@ -18,7 +18,14 @@ namespace ConsoleApp1
 
             //戦闘
             Console.WriteLine("戦闘開始");
+
             Enemy enemy = new Enemy();
+
+            enemy.MakeEnemy();
+
+
+
+
 
             Console.WriteLine("敵が1体現れた");
 
